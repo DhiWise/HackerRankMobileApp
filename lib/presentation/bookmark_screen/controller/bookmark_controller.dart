@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import '../models/bookmark_item_model.dart';
 import '/core/app_export.dart';
 import 'package:hackerrank/presentation/bookmark_screen/models/bookmark_model.dart';
 import 'package:flutter/material.dart';
@@ -120,6 +123,15 @@ class BookmarkController extends GetxController {
 
   void onFetchChallengesSuccess(var response) {
     getChallengesResp = GetChallengesResp.fromJson(response);
+
+    for (var element in getChallengesResp.models!) {
+      BookmarkItemModel bookmarkItemModel = new BookmarkItemModel();
+      bookmarkItemModel.nameTxt.value = element.name.toString();
+      bookmarkItemModel.descriptionTxt.value = element.preview.toString();
+      bookmarkItemModel.slug.value = element.slug.toString();
+      bookmarkItemModel.difficulty.value = element.difficultyName.toString();
+      bookmarkModelObj.value.bookmarkItemList.add(bookmarkItemModel);
+    }
   }
 
   void onFetchChallengesError(var err) {

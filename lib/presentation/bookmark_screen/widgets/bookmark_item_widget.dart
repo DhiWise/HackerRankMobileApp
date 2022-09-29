@@ -49,7 +49,7 @@ class BookmarkItemWidget extends StatelessWidget {
                     ),
                     child: Obx(
                       () => Text(
-                        bookmarkItemModelObj.simpleArraySuTxt.value,
+                        bookmarkItemModelObj.nameTxt.value,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
                         style: AppStyle.txtOpenSansMedium16.copyWith(
@@ -94,7 +94,7 @@ class BookmarkItemWidget extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: "lbl_easy".tr,
+                    text: bookmarkItemModelObj.difficulty.value,
                     style: TextStyle(
                       color: ColorConstant.green500,
                       fontSize: getFontSize(
@@ -106,7 +106,7 @@ class BookmarkItemWidget extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: "msg_easyproblem_sol".tr,
+                    text: bookmarkItemModelObj.descriptionTxt.value,
                     style: TextStyle(
                       color: ColorConstant.gray600,
                       fontSize: getFontSize(

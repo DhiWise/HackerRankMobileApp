@@ -185,7 +185,7 @@ class MenuDraweritem extends StatelessWidget {
 
   onTapTxtPrepar() {
     onTapImgArrowright();
-    Get.toNamed(AppRoutes.prepareScreen);
+    Get.offNamed(AppRoutes.prepareScreen);
   }
 
   onTapTxtProfile() {

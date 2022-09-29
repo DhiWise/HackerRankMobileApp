@@ -1,11 +1,15 @@
 class GetChallengesResp {
   List<Models>? models;
-  Null? firstUnsolvedChallenge;
+
+  // Null? firstUnsolvedChallenge;
   int? total;
   Promo? promo;
 
   GetChallengesResp(
-      {this.models, this.firstUnsolvedChallenge, this.total, this.promo});
+      {this.models,
+      // this.firstUnsolvedChallenge,
+      this.total,
+      this.promo});
 
   GetChallengesResp.fromJson(Map<String, dynamic> json) {
     if (json['models'] != null) {
@@ -14,7 +18,7 @@ class GetChallengesResp {
         models?.add(Models.fromJson(v));
       });
     }
-    firstUnsolvedChallenge = json['first_unsolved_challenge'];
+    // firstUnsolvedChallenge = json['first_unsolved_challenge'];
     total = json['total'];
     promo = json['promo'] != null ? Promo.fromJson(json['promo']) : null;
   }
@@ -24,9 +28,9 @@ class GetChallengesResp {
     if (this.models != null) {
       data['models'] = this.models?.map((v) => v.toJson()).toList();
     }
-    if (this.firstUnsolvedChallenge != null) {
+    /*if (this.firstUnsolvedChallenge != null) {
       data['first_unsolved_challenge'] = this.firstUnsolvedChallenge;
-    }
+    }*/
     if (this.total != null) {
       data['total'] = this.total;
     }
@@ -41,21 +45,25 @@ class Models {
   bool? solved;
   bool? attempted;
   bool? canBeViewed;
-  Null? canEdit;
+
+  // Null? canEdit;
   bool? bookmarked;
   bool? kdynamic;
   bool? hasStarted;
   bool? hasEnded;
   int? countdownTime;
-  Null? requirementsDescription;
+
+  // Null? requirementsDescription;
   int? maxScore;
   bool? active;
-  Null? epochStarttime;
+
+  /*Null? epochStarttime;
   Null? epochEndtime;
-  Null? timeLeft;
+  Null? timeLeft;*/
   int? factor;
   bool? expertSolutionStatus;
-  Null? customTabs;
+
+  // Null? customTabs;
   int? totalCount;
   int? solvedCount;
   double? successRatio;
@@ -63,26 +71,29 @@ class Models {
   bool? isSolutionUnlocked;
   String? contestSlug;
   List? topics;
-  int? userScore;
+  double? userScore;
   Track? track;
   int? id;
   String? slug;
   String? name;
-  Null? status;
+
+  // Null? status;
   String? createdAt;
   String? updatedAt;
   String? kind;
   String? preview;
   String? category;
   bool? deleted;
-  Null? companyId;
+
+  // Null? companyId;
   bool? isCustom;
   int? playerCount;
-  Null? customCheckerLanguage;
+
+  /*Null? customCheckerLanguage;
   Null? checkerProgram;
   Null? judgebotLanguage;
   Null? judgebot;
-  Null? onboarding;
+  Null? onboarding;*/
   bool? compileAndTest;
   bool? isText;
   bool? custom;
@@ -91,101 +102,106 @@ class Models {
   bool? publicTestCases;
   bool? publicSolutions;
   bool? canSolve;
-  Null? company;
+
+  // Null? company;
   double? difficulty;
-  Null? color;
+
+  // Null? color;
   double? solvedScore;
-  Null? previewFormat;
+
+  // Null? previewFormat;
   String? difficultyName;
   List? hints;
   List<String>? tagNames;
   String? skill;
-  Null? skillSlug;
 
-  Models(
-      {this.solved,
-      this.attempted,
-      this.canBeViewed,
-      this.canEdit,
-      this.bookmarked,
-      this.kdynamic,
-      this.hasStarted,
-      this.hasEnded,
-      this.countdownTime,
-      this.requirementsDescription,
-      this.maxScore,
-      this.active,
-      this.epochStarttime,
+  // Null? skillSlug;
+
+  Models({
+    this.solved,
+    this.attempted,
+    this.canBeViewed,
+    // this.canEdit,
+    this.bookmarked,
+    this.kdynamic,
+    this.hasStarted,
+    this.hasEnded,
+    this.countdownTime,
+    // this.requirementsDescription,
+    this.maxScore,
+    this.active,
+    /*    this.epochStarttime,
       this.epochEndtime,
-      this.timeLeft,
-      this.factor,
-      this.expertSolutionStatus,
-      this.customTabs,
-      this.totalCount,
-      this.solvedCount,
-      this.successRatio,
-      this.isEditorialAvailable,
-      this.isSolutionUnlocked,
-      this.contestSlug,
-      this.topics,
-      this.userScore,
-      this.track,
-      this.id,
-      this.slug,
-      this.name,
-      this.status,
-      this.createdAt,
-      this.updatedAt,
-      this.kind,
-      this.preview,
-      this.category,
-      this.deleted,
-      this.companyId,
-      this.isCustom,
-      this.playerCount,
-      this.customCheckerLanguage,
+      this.timeLeft,*/
+    this.factor,
+    this.expertSolutionStatus,
+    // this.customTabs,
+    this.totalCount,
+    this.solvedCount,
+    this.successRatio,
+    this.isEditorialAvailable,
+    this.isSolutionUnlocked,
+    this.contestSlug,
+    this.topics,
+    this.userScore,
+    this.track,
+    this.id,
+    this.slug,
+    this.name,
+    // this.status,
+    this.createdAt,
+    this.updatedAt,
+    this.kind,
+    this.preview,
+    this.category,
+    this.deleted,
+    // this.companyId,
+    this.isCustom,
+    this.playerCount,
+    /*this.customCheckerLanguage,
       this.checkerProgram,
       this.judgebotLanguage,
       this.judgebot,
-      this.onboarding,
-      this.compileAndTest,
-      this.isText,
-      this.custom,
-      this.customCase,
-      this.submitDisabled,
-      this.publicTestCases,
-      this.publicSolutions,
-      this.canSolve,
-      this.company,
-      this.difficulty,
-      this.color,
-      this.solvedScore,
-      this.previewFormat,
-      this.difficultyName,
-      this.hints,
-      this.tagNames,
-      this.skill,
-      this.skillSlug});
+      this.onboarding,*/
+    this.compileAndTest,
+    this.isText,
+    this.custom,
+    this.customCase,
+    this.submitDisabled,
+    this.publicTestCases,
+    this.publicSolutions,
+    this.canSolve,
+    // this.company,
+    this.difficulty,
+    // this.color,
+    this.solvedScore,
+    // this.previewFormat,
+    this.difficultyName,
+    this.hints,
+    this.tagNames,
+    this.skill,
+    // this.skillSlug
+  });
 
   Models.fromJson(Map<String, dynamic> json) {
     solved = json['solved'];
     attempted = json['attempted'];
     canBeViewed = json['can_be_viewed'];
-    canEdit = json['can_edit'];
+    // canEdit = json['can_edit'];
     bookmarked = json['bookmarked'];
     kdynamic = json['dynamic'];
     hasStarted = json['has_started'];
     hasEnded = json['has_ended'];
     countdownTime = json['countdown_time'];
-    requirementsDescription = json['requirements_description'];
+    // requirementsDescription = json['requirements_description'];
     maxScore = json['max_score'];
     active = json['active'];
-    epochStarttime = json['epoch_starttime'];
+    /*epochStarttime = json['epoch_starttime'];
     epochEndtime = json['epoch_endtime'];
-    timeLeft = json['time_left'];
+    timeLeft = json['time_left'];*/
     factor = json['factor'];
     expertSolutionStatus = json['expert_solution_status'];
-    customTabs = json['custom_tabs'];
+    // customTabs = json['custom_tabs'];
     totalCount = json['total_count'];
     solvedCount = json['solved_count'];
     successRatio = json['success_ratio'];
@@ -203,21 +219,21 @@ class Models {
     id = json['id'];
     slug = json['slug'];
     name = json['name'];
-    status = json['status'];
+    // status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     kind = json['kind'];
     preview = json['preview'];
     category = json['category'];
     deleted = json['deleted'];
-    companyId = json['company_id'];
+    // companyId = json['company_id'];
     isCustom = json['is_custom'];
     playerCount = json['player_count'];
-    customCheckerLanguage = json['custom_checker_language'];
+    /*customCheckerLanguage = json['custom_checker_language'];
     checkerProgram = json['checker_program'];
     judgebotLanguage = json['judgebot_language'];
     judgebot = json['judgebot'];
-    onboarding = json['onboarding'];
+    onboarding = json['onboarding'];*/
     compileAndTest = json['compile_and_test'];
     isText = json['is_text'];
     custom = json['custom'];
@@ -226,11 +242,11 @@ class Models {
     publicTestCases = json['public_test_cases'];
     publicSolutions = json['public_solutions'];
     canSolve = json['can_solve'];
-    company = json['company'];
+    // company = json['company'];
     difficulty = json['difficulty'];
-    color = json['color'];
+    // color = json['color'];
     solvedScore = json['solved_score'];
-    previewFormat = json['preview_format'];
+    // previewFormat = json['preview_format'];
     difficultyName = json['difficulty_name'];
     if (json['hints'] != null) {
       hints = [];
@@ -240,7 +256,7 @@ class Models {
     }
     tagNames = json['tag_names'].cast<String>();
     skill = json['skill'];
-    skillSlug = json['skill_slug'];
+    // skillSlug = json['skill_slug'];
   }
 
   Map<String, dynamic> toJson() {
@@ -254,9 +270,9 @@ class Models {
     if (this.canBeViewed != null) {
       data['can_be_viewed'] = this.canBeViewed;
     }
-    if (this.canEdit != null) {
+    /*if (this.canEdit != null) {
       data['can_edit'] = this.canEdit;
-    }
+    }*/
     if (this.bookmarked != null) {
       data['bookmarked'] = this.bookmarked;
     }
@@ -272,16 +288,16 @@ class Models {
     if (this.countdownTime != null) {
       data['countdown_time'] = this.countdownTime;
     }
-    if (this.requirementsDescription != null) {
+    /*if (this.requirementsDescription != null) {
       data['requirements_description'] = this.requirementsDescription;
-    }
+    }*/
     if (this.maxScore != null) {
       data['max_score'] = this.maxScore;
     }
     if (this.active != null) {
       data['active'] = this.active;
     }
-    if (this.epochStarttime != null) {
+    /*if (this.epochStarttime != null) {
       data['epoch_starttime'] = this.epochStarttime;
     }
     if (this.epochEndtime != null) {
@@ -289,16 +305,16 @@ class Models {
     }
     if (this.timeLeft != null) {
       data['time_left'] = this.timeLeft;
-    }
+    }*/
     if (this.factor != null) {
       data['factor'] = this.factor;
     }
     if (this.expertSolutionStatus != null) {
       data['expert_solution_status'] = this.expertSolutionStatus;
     }
-    if (this.customTabs != null) {
+    /*if (this.customTabs != null) {
       data['custom_tabs'] = this.customTabs;
-    }
+    }*/
     if (this.totalCount != null) {
       data['total_count'] = this.totalCount;
     }
@@ -335,9 +351,9 @@ class Models {
     if (this.name != null) {
       data['name'] = this.name;
     }
-    if (this.status != null) {
+    /*if (this.status != null) {
       data['status'] = this.status;
-    }
+    }*/
     if (this.createdAt != null) {
       data['created_at'] = this.createdAt;
     }
@@ -356,16 +372,16 @@ class Models {
     if (this.deleted != null) {
       data['deleted'] = this.deleted;
     }
-    if (this.companyId != null) {
+    /*if (this.companyId != null) {
       data['company_id'] = this.companyId;
-    }
+    }*/
     if (this.isCustom != null) {
       data['is_custom'] = this.isCustom;
     }
     if (this.playerCount != null) {
       data['player_count'] = this.playerCount;
     }
-    if (this.customCheckerLanguage != null) {
+    /*if (this.customCheckerLanguage != null) {
       data['custom_checker_language'] = this.customCheckerLanguage;
     }
     if (this.checkerProgram != null) {
@@ -379,7 +395,7 @@ class Models {
     }
     if (this.onboarding != null) {
       data['onboarding'] = this.onboarding;
-    }
+    }*/
     if (this.compileAndTest != null) {
       data['compile_and_test'] = this.compileAndTest;
     }
@@ -404,21 +420,21 @@ class Models {
     if (this.canSolve != null) {
       data['can_solve'] = this.canSolve;
     }
-    if (this.company != null) {
+    /*if (this.company != null) {
       data['company'] = this.company;
-    }
+    }*/
     if (this.difficulty != null) {
       data['difficulty'] = this.difficulty;
     }
-    if (this.color != null) {
+    /*if (this.color != null) {
       data['color'] = this.color;
-    }
+    }*/
     if (this.solvedScore != null) {
       data['solved_score'] = this.solvedScore;
     }
-    if (this.previewFormat != null) {
+    /*if (this.previewFormat != null) {
       data['preview_format'] = this.previewFormat;
-    }
+    }*/
     if (this.difficultyName != null) {
       data['difficulty_name'] = this.difficultyName;
     }
@@ -431,9 +447,9 @@ class Models {
     if (this.skill != null) {
       data['skill'] = this.skill;
     }
-    if (this.skillSlug != null) {
+    /*if (this.skillSlug != null) {
       data['skill_slug'] = this.skillSlug;
-    }
+    }*/
     return data;
   }
 }
@@ -488,21 +504,24 @@ class Track {
 }
 
 class Promo {
-  Null? meta;
+  // Null? meta;
   String? type;
 
-  Promo({this.meta, this.type});
+  Promo(
+      {
+      // this.meta,
+      this.type});
 
   Promo.fromJson(Map<String, dynamic> json) {
-    meta = json['meta'];
+    // meta = json['meta'];
     type = json['type'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    if (this.meta != null) {
+    /*if (this.meta != null) {
       data['meta'] = this.meta;
-    }
+    }*/
     if (this.type != null) {
       data['type'] = this.type;
     }

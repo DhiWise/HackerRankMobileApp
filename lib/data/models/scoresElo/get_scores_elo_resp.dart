@@ -41,7 +41,7 @@ class GetScoresEloResp {
 
 class Practice {
   int? hackerId;
-  int? score;
+  double? score;
   int? rank;
   List? locationOnLeaderboard;
 

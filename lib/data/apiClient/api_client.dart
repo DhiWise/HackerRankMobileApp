@@ -1,7 +1,3 @@
-import 'dart:convert';
-import 'dart:html';
-import 'dart:io';
-
 import 'package:hackerrank/core/app_export.dart';
 import 'package:hackerrank/core/utils/progress_dialog_utils.dart';
 
@@ -98,8 +94,7 @@ class ApiClient extends GetConnect {
       await isNetworkConnected();
       Response response = await httpClient.get(
           '$url/rest/contests/master/categories/bookmarks/challenges',
-          headers: headers,
-          query: queryParams);
+          headers: headers);
       ProgressDialogUtils.hideProgressDialog();
       if (_isSuccessCall(response)) {
         onSuccess!(response.body);
