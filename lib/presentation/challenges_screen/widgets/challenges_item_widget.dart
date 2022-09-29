@@ -59,7 +59,8 @@ class ChallengesItemWidget extends StatelessWidget {
                     onTap: () {
                       challengesItemModelObj.isBookmarked.value =
                           !challengesItemModelObj.isBookmarked.value;
-                      onTapImgStar(challengesItemModelObj.slug.value);
+                      onTapImgStar(challengesItemModelObj.slug.value,
+                          challengesItemModelObj.isBookmarked.value);
                     },
                     child: Padding(
                       padding: getPadding(
@@ -153,8 +154,8 @@ onTapBtnSolvechallenge(slug) async {
   }
 }
 
-void onTapImgStar(String slug) {
-  PutArraysDsReq putArraysDsReq = PutArraysDsReq(bookmarked: Boolean.yes);
+void onTapImgStar(String slug, bool bookmarked) {
+  PutArraysDsReq putArraysDsReq = PutArraysDsReq(bookmarked: bookmarked);
   Get.find<ChallengesController>().callUpdateArraysDs(
       slug, putArraysDsReq.toJson(),
       successCall: _onUpdateArraysDsSuccess, errCall: _onUpdateArraysDsError);
