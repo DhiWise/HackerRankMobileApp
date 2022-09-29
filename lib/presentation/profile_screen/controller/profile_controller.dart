@@ -12,9 +12,10 @@ class ProfileController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    if (Get.find<PrefUtils>().getCookie() == "") {
+    if (Get.find<PrefUtils>().getCookie() == "" ||
+        Get.find<PrefUtils>().getCsrfWithCookie() == "") {
       Get.defaultDialog(
-        title: "Cookie Not Found!",
+        title: "Cookie Or Token Not Found!",
         middleText: "",
       );
     }

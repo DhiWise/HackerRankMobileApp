@@ -1,3 +1,5 @@
+import '../../../core/constants/boolean.dart';
+import '../../../data/models/arraysDs/put_arrays_ds_req.dart';
 import '../controller/challenges_controller.dart';
 import '../models/challenges_item_model.dart';
 import 'package:flutter/material.dart';
@@ -6,13 +8,11 @@ import 'package:hackerrank/widgets/custom_button.dart';
 
 // ignore: must_be_immutable
 class ChallengesItemWidget extends StatelessWidget {
-  ChallengesItemWidget(this.challengesItemModelObj, {this.onTapImgStar});
+  ChallengesItemWidget(this.challengesItemModelObj);
 
   ChallengesItemModel challengesItemModelObj;
 
   var controller = Get.find<ChallengesController>();
-
-  VoidCallback? onTapImgStar;
 
   @override
   Widget build(BuildContext context) {
@@ -57,21 +57,25 @@ class ChallengesItemWidget extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      onTapImgStar!();
+                      challengesItemModelObj.isBookmarked.value =
+                          !challengesItemModelObj.isBookmarked.value;
+                      onTapImgStar(challengesItemModelObj.slug.value);
                     },
                     child: Padding(
                       padding: getPadding(
                         bottom: 3,
                       ),
-                      child: CommonImageView(
-                        svgPath: ImageConstant.imgStar,
-                        height: getSize(
-                          14.00,
-                        ),
-                        width: getSize(
-                          14.00,
-                        ),
-                      ),
+                      child: Obx(() => CommonImageView(
+                            svgPath: challengesItemModelObj.isBookmarked.value
+                                ? ImageConstant.imgStar14X14
+                                : ImageConstant.imgStar,
+                            height: getSize(
+                              14.00,
+                            ),
+                            width: getSize(
+                              14.00,
+                            ),
+                          )),
                     ),
                   ),
                 ],
@@ -148,3 +152,13 @@ onTapBtnSolvechallenge(slug) async {
     throw 'Could not launch';
   }
 }
+
+void onTapImgStar(String slug) {
+  PutArraysDsReq putArraysDsReq = PutArraysDsReq(bookmarked: Boolean.yes);
+  Get.find<ChallengesController>().callUpdateArraysDs(
+      slug, putArraysDsReq.toJson(),
+      successCall: _onUpdateArraysDsSuccess, errCall: _onUpdateArraysDsError);
+}
+
+void _onUpdateArraysDsSuccess() {}
+void _onUpdateArraysDsError() {}

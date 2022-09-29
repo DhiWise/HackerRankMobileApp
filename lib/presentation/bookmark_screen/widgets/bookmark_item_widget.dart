@@ -1,3 +1,5 @@
+import '../../../core/constants/boolean.dart';
+import '../../../data/models/arraysDs/put_arrays_ds_req.dart';
 import '../controller/bookmark_controller.dart';
 import '../models/bookmark_item_model.dart';
 import 'package:flutter/material.dart';
@@ -6,16 +8,11 @@ import 'package:hackerrank/widgets/custom_button.dart';
 
 // ignore: must_be_immutable
 class BookmarkItemWidget extends StatelessWidget {
-  BookmarkItemWidget(this.bookmarkItemModelObj,
-      {this.onTapImgStar, this.onTapBtnSolvechallenge});
+  BookmarkItemWidget(this.bookmarkItemModelObj);
 
   BookmarkItemModel bookmarkItemModelObj;
 
   var controller = Get.find<BookmarkController>();
-
-  VoidCallback? onTapImgStar;
-
-  VoidCallback? onTapBtnSolvechallenge;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +57,7 @@ class BookmarkItemWidget extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      onTapImgStar!();
+                      onTapImgStar(bookmarkItemModelObj.slug.value);
                     },
                     child: Padding(
                       padding: getPadding(
@@ -132,7 +129,9 @@ class BookmarkItemWidget extends StatelessWidget {
               bottom: 16,
             ),
             shape: ButtonShape.Square,
-            onTap: onTapBtnSolvechallenge,
+            onTap: () {
+              onTapBtnSolvechallenge(bookmarkItemModelObj.slug.value);
+            },
             alignment: Alignment.center,
           ),
         ],
@@ -140,3 +139,25 @@ class BookmarkItemWidget extends StatelessWidget {
     );
   }
 }
+
+onTapBtnSolvechallenge(slug) async {
+  var url = 'https://www.hackerrank.com/challenges/' +
+      slug +
+      '/problem?isFullScreen=false';
+  if (!await launch(url)) {
+    throw 'Could not launch';
+  }
+}
+
+void onTapImgStar(String slug) {
+  PutArraysDsReq putArraysDsReq = PutArraysDsReq(bookmarked: Boolean.yes);
+  Get.find<BookmarkController>().callUpdateArraysDs(
+      slug, putArraysDsReq.toJson(),
+      successCall: _onUpdateArraysDsSuccess, errCall: _onUpdateArraysDsError);
+}
+
+void _onUpdateArraysDsSuccess() {
+  Get.find<BookmarkController>().callFetchChallenges();
+}
+
+void _onUpdateArraysDsError() {}

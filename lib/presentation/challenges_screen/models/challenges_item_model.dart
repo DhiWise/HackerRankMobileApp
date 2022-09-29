@@ -5,4 +5,5 @@ class ChallengesItemModel {
   Rx<String> descriptionTxt = Rx('');
   Rx<String> slug = Rx('');
   Rx<String> difficulty = Rx('');
+  Rx<bool> isBookmarked = Rx(false);
 }

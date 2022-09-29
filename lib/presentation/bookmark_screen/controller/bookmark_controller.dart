@@ -19,9 +19,10 @@ class BookmarkController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    if (Get.find<PrefUtils>().getCookie() == "") {
+    if (Get.find<PrefUtils>().getCookie() == "" ||
+        Get.find<PrefUtils>().getCsrfWithCookie() == "") {
       Get.defaultDialog(
-        title: "Cookie Not Found!",
+        title: "Cookie Or Token Not Found!",
         middleText: "",
       );
     }
@@ -42,37 +43,33 @@ class BookmarkController extends GetxController {
     super.onClose();
   }
 
-  void callUpdateArraysDs(Map req,
+  void callUpdateArraysDs(String slug, Map req,
       {VoidCallback? successCall, VoidCallback? errCall}) async {
-    return Get.find<ApiClient>().updateArraysDs(
-        headers: {
-          'Accept': 'application/json',
-          'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
-          'Connection': 'keep-alive',
-          'Content-Type': 'application/json',
-          'Origin': 'https://www.hackerrank.com',
-          'Referer': 'https://www.hackerrank.com/domains/data-structures',
-          'Sec-Fetch-Dest': 'empty',
-          'Sec-Fetch-Mode': 'cors',
-          'Sec-Fetch-Site': 'same-origin',
-          'User-Agent':
-              'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
-          'X-CSRF-Token': Get.find<PrefUtils>().getCsrf(),
-          'Cookie': Get.find<PrefUtils>().getCookie()
-        },
-        onSuccess: (resp) {
-          onUpdateArraysDsSuccess(resp);
-          if (successCall != null) {
-            successCall();
-          }
-        },
-        onError: (err) {
-          onUpdateArraysDsError(err);
-          if (errCall != null) {
-            errCall();
-          }
-        },
-        requestData: req);
+    return Get.find<ApiClient>().updateArraysDs(slug, headers: {
+      'Accept': 'application/json',
+      'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
+      'Connection': 'keep-alive',
+      'Content-Type': 'application/json',
+      'Origin': 'https://www.hackerrank.com',
+      'Referer': 'https://www.hackerrank.com/domains/data-structures',
+      'Sec-Fetch-Dest': 'empty',
+      'Sec-Fetch-Mode': 'cors',
+      'Sec-Fetch-Site': 'same-origin',
+      'User-Agent':
+          'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+      'X-CSRF-Token': Get.find<PrefUtils>().getCsrfWithCookie(),
+      'Cookie': Get.find<PrefUtils>().getCookie()
+    }, onSuccess: (resp) {
+      onUpdateArraysDsSuccess(resp);
+      if (successCall != null) {
+        successCall();
+      }
+    }, onError: (err) {
+      onUpdateArraysDsError(err);
+      if (errCall != null) {
+        errCall();
+      }
+    }, requestData: req);
   }
 
   void onUpdateArraysDsSuccess(var response) {

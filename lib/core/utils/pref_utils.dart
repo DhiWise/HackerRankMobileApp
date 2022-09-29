@@ -13,7 +13,6 @@ class PrefUtils {
 
   Future<void> init() async {
     _sharedPreferences ??= await SharedPreferences.getInstance();
-    print('SharedPreference Initialized');
   }
 
   void clearPreferencesData() async {
@@ -40,8 +39,20 @@ class PrefUtils {
     }
   }
 
+  String getCsrfWithCookie() {
+    try {
+      return _sharedPreferences!.getString('csrfWithCookie') ?? "";
+    } catch (e) {
+      return '';
+    }
+  }
+
   Future<void> setCookie(String value) {
     return _sharedPreferences!.setString('cookie', value);
+  }
+
+  Future<void> setCsrfWithCookie(String value) {
+    return _sharedPreferences!.setString('csrfWithCookie', value);
   }
 
   Future<void> setSlug(String value) {

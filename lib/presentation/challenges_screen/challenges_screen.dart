@@ -139,20 +139,10 @@ class ChallengesScreen extends GetWidget<ChallengesController> {
                                     .challengesModelObj
                                     .value
                                     .challengesItemList[index];
-                                return ChallengesItemWidget(model,
-                                    onTapImgStar: onTapImgStar);
+                                return ChallengesItemWidget(model);
                               })))
                     ]))))));
   }
-
-  void onTapImgStar() {
-    PutArraysDsReq putArraysDsReq = PutArraysDsReq(bookmarked: Boolean.yes);
-    controller.callUpdateArraysDs(putArraysDsReq.toJson(),
-        successCall: _onUpdateArraysDsSuccess, errCall: _onUpdateArraysDsError);
-  }
-
-  void _onUpdateArraysDsSuccess() {}
-  void _onUpdateArraysDsError() {}
 
   onTapImgMenu() {
     _scaffoldKey.currentState?.openDrawer();

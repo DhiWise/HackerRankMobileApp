@@ -139,28 +139,9 @@ class BookmarkScreen extends GetWidget<BookmarkController> {
                                     .bookmarkModelObj
                                     .value
                                     .bookmarkItemList[index];
-                                return BookmarkItemWidget(model,
-                                    onTapImgStar: onTapImgStar,
-                                    onTapBtnSolvechallenge:
-                                        onTapBtnSolvechallenge);
+                                return BookmarkItemWidget(model);
                               })))
                     ]))))));
-  }
-
-  void onTapImgStar() {
-    PutArraysDsReq putArraysDsReq = PutArraysDsReq(bookmarked: Boolean.no);
-    controller.callUpdateArraysDs(putArraysDsReq.toJson(),
-        successCall: _onUpdateArraysDsSuccess, errCall: _onUpdateArraysDsError);
-  }
-
-  void _onUpdateArraysDsSuccess() {}
-  void _onUpdateArraysDsError() {}
-  onTapBtnSolvechallenge() async {
-    var url =
-        'https://www.hackerrank.com/challenges/solve-me-first/problem?isFullScreen=true';
-    if (!await launch(url)) {
-      throw 'Could not launch https://www.hackerrank.com/challenges/solve-me-first/problem?isFullScreen=true';
-    }
   }
 
   onTapImgMenu() {

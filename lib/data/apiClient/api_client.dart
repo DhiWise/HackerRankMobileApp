@@ -110,7 +110,7 @@ class ApiClient extends GetConnect {
     }
   }
 
-  Future updateArraysDs(
+  Future updateArraysDs(String slug,
       {Function(dynamic data)? onSuccess,
       Function(dynamic error)? onError,
       Map<String, String> headers = const {},
@@ -119,7 +119,7 @@ class ApiClient extends GetConnect {
     try {
       await isNetworkConnected();
       Response response = await httpClient.put(
-          '$url/rest/contests/master/challenges/arrays-ds',
+          '$url/rest/contests/master/challenges/$slug',
           headers: headers,
           body: requestData);
       ProgressDialogUtils.hideProgressDialog();
