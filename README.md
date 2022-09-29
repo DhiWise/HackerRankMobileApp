@@ -1,7 +1,7 @@
-# Flutter App For Downtime Monitor With Slack Notification
-In daily organization routine, they may have different types of work and dependencies on other services, each service may have a different status when the situations like service downtime occur every organisation may not be able to be aware of the exact situation at a time due to which there may be some problems into their product functionality and other things.  
+# Flutter App For HackerRank Developers Communities
+HackerRank is a technology hiring platform that is the standard for assessing developer skills for over 2,800+ companies worldwide.
 
-For all different types of services have different status pages, so instead of visiting and checking each service status, it can be solved by providing all service statuses on a single page. and send notification of the dependency services which are having downtime can be automated.
+Many companies have full-fledged websites but not mobile applications. In today's world, people consume most of their time on their mobiles. Hence, it is not feasible to expand a business without mobile applications. For the company's growth, it is advisable to have a mobile application too.
 
 ### Table of Contents
 - [Features](#features)
@@ -14,37 +14,19 @@ For all different types of services have different status pages, so instead of v
 - [Community](#community)
 
 # Features
-1.  Get the list of services
-2.  Downtime notification on Slack
-
-The Project has default configuration in constant of status API services endpoints, logos and original status page urls to redirect
-
-1.  Postman
-2.  Slack
-3.  Amazon
-4.  ClickUp
-5.  Keka
-6.  Canny
-7.  HubSpot
-8.  HotJar
-9.  MixPanel
-10. HoppScotch
-11. Vercel
-12. GitHub
-13. Figma
+//list of features
+1. 
+2. 
 
 # Screenshots
-
-![Image1](/Screenshot%20from%202022-09-01%2017-17-20.png)
-![Image2](/Screenshot%20from%202022-09-01%2017-17-46.png)
-![Slack Notification](/Screenshot%20from%202022-07-19%2019-03-17.png)
+//output screenshots
 
 # Setup
 
 #### 1. Clone the repository
 ```sh
-$ git clone https://github.com/DhiWise/DowntimeMonitorMobileApp
-$ cd DowntimeMonitorMobileApp
+$ git clone https://github.com/DhiWise/HackerRankMobileApp
+$ cd HackerRankMobileApp
 ```
 ## Install Dependencies
 
@@ -53,9 +35,7 @@ $ cd DowntimeMonitorMobileApp
 
     flutter run
 
-#### 2. Set Account URL In Following Files
-
-Create Slack Webhooks API account from https://api.slack.com/apps?new_app=1 and add URL which is generated from Slack at "lib/data/apiClient/api_client.dart" => "https://hooks.slack.com/services/[your slack webhook setups url]"
+#### 2. Set Token and Cookie in following file to access feature of Profile and Bookmark 
 
 <div>
   <h1 align="center">Getting Started with Flutter 🚀 </h1>
