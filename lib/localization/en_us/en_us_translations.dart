@@ -41,7 +41,7 @@ final Map<String, String> enUs = {
   "msg_easyproblem_sol":
       "EasyProblem Solving (Basic), Max Score; 10, Success Rate: 94.27%",
   "lbl_profile": "Profile",
-  "lbl_prepar": "Prepar",
+  "lbl_prepar": "Prepare",
   "lbl": "--",
   "lbl_linux_shell": "Linux Shell",
   "lbl_bookmark": "Bookmark",
