@@ -40,7 +40,7 @@ $ cd HackerRankMobileApp
 
     flutter run
 
-#### 2. Set Token and Cookie in following file to access feature of Profile and Bookmark 
+#### 2. Set Token and Cookie in login screen _onCreateLoginSuccess method to access feature of Profile and Bookmark
 
 <div>
   <h1 align="center">Getting Started with Flutter 🚀 </h1>
