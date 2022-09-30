@@ -14,12 +14,17 @@ Many companies have full-fledged websites but not mobile applications. In today'
 - [Community](#community)
 
 # Features
-//list of features
-1. 
-2. 
+1. Login
+2. List Of Prepare Topics
+3. List Challenges
+4. Bookmark Challenges
+5. Challenge Details
+6. View Profile
+7. List Bookamrks
+8. LogOut
 
 # Screenshots
-//output screenshots
+
 
 # Setup
 
