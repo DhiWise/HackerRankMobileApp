@@ -49,5 +49,10 @@ final Map<String, String> enUs = {
   "lbl_c2": "C++",
   "lbl_regex": "Regex",
   "lbl_easy": "Easy. ",
-  "lbl_sql": "SQL"
+  "lbl_sql": "SQL",
+  "lbl_hackerrank":"HackerRank",
+  "lbl_cookie_token_not_found":"Cookie Or Token Not Found!",
+  "lbl_are_you_sure_logout":"Are you sure you want to Logout?",
+  "lbl_please_enter_valid_email":"Please Enter Valid Email",
+  "lbl_please_enter_valid_password":"Please Enter Valid Password"
 };

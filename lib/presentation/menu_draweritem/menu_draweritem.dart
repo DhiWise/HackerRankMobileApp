@@ -201,7 +201,7 @@ class MenuDraweritem extends StatelessWidget {
   void onTapTxtLogout() {
     onTapImgArrowright();
     Get.defaultDialog(
-        title: 'Are you sure you want to Logout?',
+        title: "lbl_are_you_sure_logout".tr,
         confirm: GestureDetector(
           child: Text('confirm'),
           onTap: (() => {

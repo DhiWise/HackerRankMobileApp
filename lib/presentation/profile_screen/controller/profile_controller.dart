@@ -15,7 +15,7 @@ class ProfileController extends GetxController {
     if (Get.find<PrefUtils>().getCookie() == "" ||
         Get.find<PrefUtils>().getCsrfWithCookie() == "") {
       Get.defaultDialog(
-        title: "Cookie Or Token Not Found!",
+        title: "lbl_cookie_token_not_found".tr,
         middleText: "",
       );
     }

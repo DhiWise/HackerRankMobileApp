@@ -1,10 +1,9 @@
-import '../../../core/constants/boolean.dart';
-import '../../../data/models/arraysDs/put_arrays_ds_req.dart';
 import '../controller/challenges_controller.dart';
 import '../models/challenges_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hackerrank/core/app_export.dart';
 import 'package:hackerrank/widgets/custom_button.dart';
+import '../../../data/models/arraysDs/put_arrays_ds_req.dart';
 
 // ignore: must_be_immutable
 class ChallengesItemWidget extends StatelessWidget {

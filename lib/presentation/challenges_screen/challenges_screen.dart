@@ -6,8 +6,6 @@ import 'models/challenges_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hackerrank/core/app_export.dart';
 import 'package:hackerrank/widgets/custom_button.dart';
-import 'package:hackerrank/data/models/arraysDs/put_arrays_ds_req.dart';
-import 'package:hackerrank/core/constants/boolean.dart';
 
 // ignore_for_file: must_be_immutable
 class ChallengesScreen extends GetWidget<ChallengesController> {
@@ -120,13 +118,17 @@ class ChallengesScreen extends GetWidget<ChallengesController> {
                                                       ]))
                                             ])))
                               ])),
-                      CustomButton(
+                      Container(
                           width: 428,
-                          text: controller.name,
-                          variant: ButtonVariant.FillWhiteA700,
-                          shape: ButtonShape.Square,
-                          padding: ButtonPadding.PaddingAll22,
-                          fontStyle: ButtonFontStyle.OpenSansRomanBold18),
+                          alignment: Alignment.center,
+                          decoration: AppDecoration.fillWhiteA700,
+                          padding: getPadding(
+                                        left: 20,
+                                        top: 10,
+                                        right: 20,
+                                        bottom: 10),
+                          child:Text(controller.name)
+                          ),
                       Padding(
                           padding: getPadding(top: 14),
                           child: Obx(() => ListView.builder(
